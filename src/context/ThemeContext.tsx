@@ -1,10 +1,14 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 type Theme = 'dark' | 'light' | 'system';
+type BackgroundEffect = 'default' | 'clouds';
 
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  backgroundEffect: BackgroundEffect;
+  toggleBackgroundEffect: () => void;
+  isAnimating: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -15,6 +19,24 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const savedTheme = localStorage.getItem('theme') as Theme;
     return savedTheme || 'system';
   });
+
+  const [backgroundEffect, setBackgroundEffect] = useState<BackgroundEffect>('default');
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const toggleBackgroundEffect = () => {
+    if (backgroundEffect === 'default') {
+      // Switching to clouds - immediate transition
+      setBackgroundEffect('clouds');
+    } else {
+      // Switching to default - start fadeout animation
+      setIsAnimating(true);
+      // After fadeout animation completes, change the background effect
+      setTimeout(() => {
+        setBackgroundEffect('default');
+        setIsAnimating(false);
+      }, 1000); // Match the fadeout duration in CSS
+    }
+  };
 
   useEffect(() => {
     // Save theme preference to localStorage
@@ -48,7 +70,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, backgroundEffect, toggleBackgroundEffect, isAnimating }}>
       {children}
     </ThemeContext.Provider>
   );

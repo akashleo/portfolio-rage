@@ -1,7 +1,40 @@
 import React from 'react';
-import { Calendar, Eye, Heart, MessageCircle } from 'lucide-react';
+import { Calendar, Eye, Heart, MessageCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
-const Blogs = () => {
+const BlogsPreview = () => {
+  const { theme } = useTheme();
+  
+  // Dynamic classes based on theme
+  const bgClass = theme === 'dark' 
+    ? "bg-green-900 border-green-700" 
+    : "bg-white border-gray-300";
+  
+  const textClass = theme === 'dark'
+    ? "text-white"
+    : "text-[#141852]";
+    
+  const linkClass = theme === 'dark'
+    ? "text-green-300 hover:text-green-200"
+    : "text-green-600 hover:text-green-700";
+    
+  const cardBgClass = theme === 'dark'
+    ? "bg-green-800 hover:bg-green-700"
+    : "bg-green-50 hover:bg-green-100";
+    
+  const cardTextClass = theme === 'dark'
+    ? "text-white"
+    : "text-[#141852]";
+    
+  const excerptClass = theme === 'dark'
+    ? "text-green-100"
+    : "text-gray-600";
+    
+  const metaTextClass = theme === 'dark'
+    ? "text-green-200"
+    : "text-green-700";
+  
   const blogs = [
     {
       title: 'Building Modern Web Apps with React',
@@ -19,36 +52,34 @@ const Blogs = () => {
       likes: 43,
       comments: 8,
     },
-    {
-      title: 'Optimizing Database Performance',
-      excerpt: 'Essential techniques for improving database query performance and scaling strategies...',
-      date: '2024-01-02',
-      views: 756,
-      likes: 38,
-      comments: 15,
-    },
   ];
 
   return (
-    <div className="bg-green-900 p-6 rounded-xl border border-green-700">
-      <h3 className="text-xl font-bold text-white mb-4">LATEST BLOGS.</h3>
+    <div className={`${bgClass} p-6 rounded-xl border`}>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className={`text-xl font-bold ${textClass}`}>LATEST BLOGS.</h3>
+        <Link to="/blogs" className={`flex items-center ${linkClass} transition-colors`}>
+          <span className="text-sm mr-1">View all</span>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
       
       <div className="space-y-4">
         {blogs.map((blog, index) => (
           <div
             key={index}
-            className="p-4 bg-green-800 rounded-lg hover:bg-green-700 transition-colors duration-200 cursor-pointer"
+            className={`p-4 ${cardBgClass} rounded-lg transition-colors duration-200 cursor-pointer`}
           >
-            <h4 className="text-white font-semibold mb-2">{blog.title}</h4>
-            <p className="text-green-100 text-sm mb-3 line-clamp-2">{blog.excerpt}</p>
+            <h4 className={`${cardTextClass} font-semibold mb-2`}>{blog.title}</h4>
+            <p className={`${excerptClass} text-sm mb-3 line-clamp-2`}>{blog.excerpt}</p>
             
             <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center gap-1 text-green-200">
+              <div className={`flex items-center gap-1 ${metaTextClass}`}>
                 <Calendar className="w-4 h-4" />
                 <span>{new Date(blog.date).toLocaleDateString()}</span>
               </div>
               
-              <div className="flex items-center gap-4 text-green-200">
+              <div className={`flex items-center gap-4 ${metaTextClass}`}>
                 <div className="flex items-center gap-1">
                   <Eye className="w-4 h-4" />
                   <span>{blog.views}</span>
@@ -70,4 +101,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs; 
+export default BlogsPreview; 

@@ -1,8 +1,28 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const MediaSection = () => {
+  const { theme } = useTheme();
+  
+  // Dynamic classes based on theme
+  const bgClass = theme === 'dark' 
+    ? "bg-gray-900 border-gray-800" 
+    : "bg-white border-gray-300";
+  
+  const textClass = theme === 'dark'
+    ? "text-white"
+    : "text-[#141852]";
+    
+  const secondaryTextClass = theme === 'dark'
+    ? "text-gray-400"
+    : "text-gray-600";
+    
+  const quoteBoxClass = theme === 'dark'
+    ? "bg-gray-800"
+    : "bg-gray-100";
+
   return (
-    <div className="bg-gray-900 p-6 rounded-xl border border-gray-800">
+    <div className={`${bgClass} p-6 rounded-xl border`}>
       <div className="grid grid-cols-2 gap-4">
         {/* Astronomical Images */}
         <div className="relative group cursor-pointer">
@@ -42,14 +62,14 @@ const MediaSection = () => {
         </div>
       </div>
 
-      <div className="mt-4 text-sm text-gray-400">
-        <p className="mb-1">Serendipitously Discovered Asteroids</p>
-        <p className="text-xs">Kepler Sar • Telescope • Asteroids • 1998-03-16</p>
+      <div className="mt-4 text-sm">
+        <p className={`mb-1 ${secondaryTextClass}`}>Serendipitously Discovered Asteroids</p>
+        <p className="text-xs text-gray-500">Kepler Sar • Telescope • Asteroids • 1998-03-16</p>
       </div>
 
       {/* Quote Section */}
-      <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-        <p className="text-white text-center italic">
+      <div className={`mt-6 p-4 ${quoteBoxClass} rounded-lg`}>
+        <p className={`${textClass} text-center italic`}>
           "I'm gonna be Hokage one day."
         </p>
         <div className="mt-2 flex justify-center">

@@ -1,33 +1,137 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Circle } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const Profile = () => {
+  const { toggleBackgroundEffect, theme, backgroundEffect } = useTheme();
+  const bengaliTextRef = useRef<HTMLSpanElement>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  
+  // Dynamic classes based on theme
+  const bgClass = theme === 'dark' 
+    ? "bg-gray-900 border-gray-800" 
+    : "bg-white border-gray-300";
+  
+  const textClass = theme === 'dark'
+    ? "text-white"
+    : "text-[#141852]";
+    
+  const secondaryTextClass = theme === 'dark'
+    ? "text-gray-400"
+    : "text-gray-600";
+    
+  const paragraphClass = theme === 'dark'
+    ? "text-gray-300"
+    : "text-gray-600";
+    
+  const accentTextClass = theme === 'dark'
+    ? "text-blue-400"
+    : "text-blue-600";
+    
+  const snippetBgClass = theme === 'dark'
+    ? "bg-gray-900 border-gray-800"
+    : "bg-white border-gray-300";
+    
+  const commentClass = theme === 'dark'
+    ? "text-gray-500"
+    : "text-gray-500";
+    
+  const codeClass = theme === 'dark'
+    ? "text-blue-400"
+    : "text-blue-600";
+    
+  const tooltipClass = theme === 'dark'
+    ? "bg-gray-800 text-gray-100"
+    : "bg-white text-[#141852] shadow-lg";
+
+  // Apply or remove glow effect based on backgroundEffect
+  useEffect(() => {
+    if (!bengaliTextRef.current) return;
+    
+    if (backgroundEffect === 'clouds') {
+      // Apply glow effect
+      bengaliTextRef.current.style.color = "#87CEEB";
+      bengaliTextRef.current.style.textShadow = "0 0 8px #87CEEB";
+      bengaliTextRef.current.style.transition = "all 0.5s ease";
+    } else {
+      // Remove glow effect with fade out animation
+      bengaliTextRef.current.style.transition = "all 1s ease";
+      bengaliTextRef.current.style.color = "";
+      bengaliTextRef.current.style.textShadow = "none";
+    }
+  }, [backgroundEffect]);
+
   return (
     <div className="space-y-6">
       {/* Profile Header */}
-      <div className="bg-gray-900 rounded-xl border border-gray-800">
+      <div className={`${bgClass} rounded-xl border`}>
         <div className="p-6">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
               A
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">akash ghosh.</h1>
-              <p className="text-gray-400">@akashleo_tw</p>
+              <h1 className={`text-2xl font-bold ${textClass}`}>akash ghosh.</h1>
+              <p className={secondaryTextClass}>@akashleo_tw</p>
             </div>
             <div className="ml-auto text-right">
-              <div className="text-white font-mono font-bold text-lg">আকাশ</div>
+              <div className={`${textClass} font-mono font-bold text-lg relative`}>
+                <span
+                  ref={bengaliTextRef}
+                  className={`transition-all duration-300 hover:text-blue-400 inline-block cursor-pointer ${backgroundEffect === 'clouds' ? 'animate-pulse' : ''}`}
+                  onClick={toggleBackgroundEffect}
+                  onMouseEnter={(e) => {
+                    setShowTooltip(true);
+                    if (backgroundEffect === 'default') {
+                      e.currentTarget.style.color = "#87CEEB";
+                      e.currentTarget.style.textShadow = "0 0 8px #87CEEB";
+                      e.currentTarget.style.transform = "scale(1.1)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    setShowTooltip(false);
+                    if (backgroundEffect === 'default') {
+                      e.currentTarget.style.color = "";
+                      e.currentTarget.style.textShadow = "none";
+                      e.currentTarget.style.transform = "scale(1)";
+                    }
+                  }}
+                >
+                  আকাশ
+                </span>
+                
+                {/* Tooltip */}
+                {showTooltip && (
+                  <div 
+                    className={`absolute right-0 top-full mt-2 p-2 rounded-md ${tooltipClass} text-xs w-48 z-50 transform transition-opacity duration-200`}
+                    style={{ 
+                      opacity: showTooltip ? 1 : 0,
+                      boxShadow: theme === 'dark' ? '0 0 10px rgba(0,0,0,0.5)' : '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    }}
+                  >
+                    <div className="font-normal">
+                      This is my name in Bangla. Akash means "the sky".
+                    </div>
+                    <div 
+                      className="absolute -top-2 right-3 w-3 h-3 rotate-45"
+                      style={{ 
+                        backgroundColor: theme === 'dark' ? '#1f2937' : 'white' 
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
         <div className="flex justify-between">
           <div className="space-y-3 p-6">
-            <p className="text-white text-lg">
+            <p className={`${textClass} text-lg`}>
               I build{" "}
-              <span className="font-semibold text-blue-400">Web Apps</span>.
+              <span className={`font-semibold ${accentTextClass}`}>Web Apps</span>.
             </p>
 
-            <p className="text-gray-300">
+            <p className={paragraphClass}>
               Hello, I'm Akash! a 26 year old developer based in Bengaluru - India.
             </p>
 
@@ -51,11 +155,13 @@ const Profile = () => {
       </div>
 
       {/* Code Snippet */}
-      <div className="bg-gray-900 rounded-xl border border-gray-800 flex items-center justify-between overflow-hidden">
+      <div className={`${snippetBgClass} rounded-xl border flex items-center justify-between overflow-hidden`}>
         <div className="p-4">
           <div className="font-mono text-sm">
-            <div className="text-gray-500 mb-1">// How do I center</div>
-            <div className="text-blue-400 text-lg">&gt; a div again??</div>
+            <div className={commentClass}>// How do I center</div>
+            <div className={codeClass}>
+              &gt; a div again??
+            </div>
           </div>
         </div>
         <div className="rounded-xl flex items-center justify-center">

@@ -1,41 +1,36 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import TechStack from './components/TechStack';
-import Profile from './components/Profile';
-import DailyTools from './components/DailyTools';
-import MediaSection from './components/MediaSection';
-import Projects from './components/Projects';
-import Blogs from './components/Blogs';
-import LinksSection from './components/LinksSection';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Blogs from './pages/Blogs';
+import { useTheme } from './context/ThemeContext';
+import CloudAnimation from './components/CloudAnimation';
 
 function App() {
+  const { backgroundEffect, isAnimating } = useTheme();
+
+  console.log(backgroundEffect);
+
   return (
-    <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-     
-      <div className="container mx-auto px-4 py-8">
-      <Navbar />
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Sidebar - Tech Stack */}
-          <div className="lg:col-span-3">
-            <TechStack />
-          </div>
-
-          {/* Main Content Area */}
-          <div className="lg:col-span-6 space-y-6">
-            <Profile />
-            <DailyTools />
-            <MediaSection />
-            <Projects />
-            <Blogs />
-          </div>
-
-          {/* Right Sidebar - Links */}
-          <div className="lg:col-span-3">
-            <LinksSection />
-          </div>
+    <Router>
+      <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] relative">
+        {/* Original background is at z-index 0 (default) */}
+        
+        {/* Cloud animation background - z-index 10 (sky) and z-index 30 (clouds) */}
+        {(backgroundEffect === 'clouds' || isAnimating) && <CloudAnimation />}
+        
+        {/* Main content - z-index 20 (middle layer for component tiles) */}
+        <div className="container mx-auto px-4 py-8">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blogs" element={<Blogs />} />
+          </Routes>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

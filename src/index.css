@@ -21,7 +21,7 @@
   --destructive-foreground: 210 40% 98%;
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  --ring: 224.3 76.5% 48%;
 }
 
 .dark {
@@ -44,4 +44,137 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 224.3 76.5% 48%;
+}
+
+/*
+  Creating a full-screen, scrolling cloud background.
+*/
+
+/* Z-Index Structure:
+   - Original background: z-index 0 (default)
+   - Sky background: z-index 10
+   - Component tiles: z-index 20
+   - Clouds: z-index 30
+   - Navbar: z-index 40 (to stay on top)
+*/
+
+/* Set z-index for components to be in middle layer */
+.container {
+  position: relative;
+  z-index: 20;
+}
+
+/* Individual component tiles */
+.bg-gray-900, .bg-green-900, .bg-gradient-to-br {
+  position: relative;
+  z-index: 20;
+}
+
+#background-wrap {
+  bottom: 0;
+  left: 0;
+  padding-top: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10; /* Sky background above original background */
+  transition: background-color 0.8s ease;
+  overflow: hidden;
+  pointer-events: none; /* Allow clicks to pass through to components */
+}
+
+.cloud-container {
+  position: absolute;
+  z-index: 30; /* Clouds on top of everything except navbar */
+  pointer-events: none; /* Allow clicks to pass through */
+  width: 100%;
+  white-space: nowrap;
+}
+
+.cloud-img {
+  width: 100%; /* Original width */
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+/* Ensure navbar stays on top */
+nav.sticky {
+  z-index: 40 !important;
+}
+
+/* Continuous marquee animations for clouds */
+@keyframes marqueeLeftToRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes marqueeRightToLeft {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Cloud positions and animations - continuous marquee effect */
+.x1 {
+  top: 0%;
+  animation: marqueeRightToLeft 40s linear infinite;
+}
+
+.x2 {
+  top: 15%;
+  transform: scale(0.6);
+  opacity: 0.9;
+  animation: marqueeLeftToRight 45s linear infinite;
+}
+
+.x3 {
+  top: 2%;
+  transform: scale(0.8);
+  opacity: 0.8;
+  animation: marqueeRightToLeft 50s linear infinite;
+}
+
+.x4 {
+  top: 18%;
+  transform: scale(0.75);
+  opacity: 0.75;
+  animation: marqueeLeftToRight 55s linear infinite;
+}
+
+.x5 {
+  top: 20%;
+  transform: scale(0.7);
+  opacity: 0.8;
+  animation: marqueeRightToLeft 60s linear infinite;
+}
+
+/* Dark theme compatibility */
+.dark #background-wrap {
+  opacity: 0.95; /* Slightly higher opacity in dark mode */
+}
+
+.dark .cloud-img {
+  filter: brightness(0.8) hue-rotate(240deg); /* Apply purple hue to clouds in dark mode */
+  opacity: 0.8; /* Make clouds more transparent in dark mode */
+}
+
+/* Animation start state - only shown when animation is triggered */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fadeout animation for cloud background */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+#background-wrap {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Fadeout animation class */
+.animate-fadeout {
+  animation: fadeOut 1s ease-out forwards;
 }

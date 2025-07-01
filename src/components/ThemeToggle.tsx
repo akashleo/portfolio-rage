@@ -18,7 +18,11 @@ const ThemeToggle: React.FC = () => {
   return (
     <button 
       onClick={cycleTheme}
-      className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors duration-200 flex items-center gap-2"
+      className={`px-4 py-2 ${
+        theme === 'dark' 
+          ? 'text-gray-300 hover:text-white hover:bg-gray-800/50' 
+          : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200/50'
+      } rounded-lg transition-colors duration-200 flex items-center gap-2`}
       aria-label="Toggle theme"
       title={`Current theme: ${theme}`}
     >
