@@ -28,10 +28,10 @@ const WorkedAt = () => {
     
   const companies = [
     {
-      name: "Google",
-      role: "Senior Frontend Engineer",
-      period: "2022 - Present",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/150px-Google_%22G%22_Logo.svg.png"
+      name: "PhonePe",
+      role: "Software Engineer [contract]",
+      period: "2023 - Present",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg"
     },
     {
       name: "Microsoft",

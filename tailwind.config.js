@@ -38,6 +38,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'warm-white': '#FFF8DC',
       },
     },
   },

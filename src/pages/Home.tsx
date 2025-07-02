@@ -10,7 +10,19 @@ import WorkedAt from '../components/WorkedAt';
 const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Mobile and Tablet Layout */}
+      <div className="flex flex-col gap-6 lg:hidden">
+        <Profile />
+        <LinksSection />
+        <TechStack />
+        <WorkedAt />
+        <ProjectSection />
+        <BlogSection />
+        <MediaSection />
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:grid lg:grid-cols-12 gap-6">
         {/* Left Sidebar - Tech Stack */}
         <div className="lg:col-span-3">
           <TechStack />

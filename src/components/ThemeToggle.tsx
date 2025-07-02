@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, Monitor } from 'lucide-react';
+import { Sun, Moon, SunMoon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
@@ -24,7 +24,7 @@ const ThemeToggle: React.FC = () => {
           : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200/50'
       } rounded-lg transition-colors duration-200 flex items-center gap-2`}
       aria-label="Toggle theme"
-      title={`Current theme: ${theme}`}
+      title={`Current theme: ${theme === 'system' ? 'dusk' : theme}`}
     >
       <div className="relative w-8 h-8 flex items-center justify-center">
         {theme === 'dark' && (
@@ -34,7 +34,7 @@ const ThemeToggle: React.FC = () => {
           <Sun className="w-5 h-5 absolute transition-all duration-300 transform scale-100 opacity-100" />
         )}
         {theme === 'system' && (
-          <Monitor className="w-5 h-5 absolute transition-all duration-300 transform scale-100 opacity-100" />
+          <SunMoon className="w-5 h-5 absolute transition-all duration-300 transform scale-100 opacity-100" />
         )}
       </div>
     </button>
