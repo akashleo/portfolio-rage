@@ -82,7 +82,7 @@ const TechStack = () => {
     
           <div className="flex justify-center items-center mb-4">
         <img 
-          src="../public/bigbren-2.png" 
+          src="/bigbren-2.png" 
           alt="wojak" 
           className="h-auto w-40 rounded-br-xl object-cover scale-125 transform-gpu"
           style={{ objectPosition: 'center' }}

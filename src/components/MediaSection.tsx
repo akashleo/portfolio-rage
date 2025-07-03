@@ -27,58 +27,51 @@ const MediaSection = () => {
         {/* Astronomical Images */}
         <div className="relative group cursor-pointer">
           <img
-            src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=400"
+            src="/pic14.jpg"
             alt="Galaxy"
-            className="w-full h-32 object-cover rounded-lg"
+            className="w-full h-48 object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 rounded-lg" />
         </div>
         
         <div className="relative group cursor-pointer">
           <img
-            src="https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=400"
+            src='/pic13.jpg'
             alt="Nebula"
-            className="w-full h-32 object-cover rounded-lg"
+            className="w-full h-48 object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 rounded-lg" />
         </div>
 
         <div className="relative group cursor-pointer">
           <img
-            src="https://images.pexels.com/photos/2156/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&w=400"
-            alt="Earth from space"
-            className="w-full h-32 object-cover rounded-lg"
+           src='/pic9.jpg'
+           alt="Earth from space"
+            className="w-full h-48 object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 rounded-lg" />
         </div>
 
         <div className="relative group cursor-pointer">
           <img
-            src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=400"
+            src='/pic4.jpg'
             alt="Planet surface"
-            className="w-full h-32 object-cover rounded-lg"
+            className="w-full h-48 object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 rounded-lg" />
         </div>
       </div>
 
       <div className="mt-4 text-sm">
-        <p className={`mb-1 ${secondaryTextClass}`}>Serendipitously Discovered Asteroids</p>
-        <p className="text-xs text-gray-500">Kepler Sar • Telescope • Asteroids • 1998-03-16</p>
+        <p className={`mb-1 ${secondaryTextClass}`}>what i do on weekends</p>
+        <p className="text-xs text-gray-500">bike rides • cooking • concerts • guitar</p>
       </div>
 
       {/* Quote Section */}
       <div className={`mt-6 p-4 ${quoteBoxClass} rounded-lg`}>
         <p className={`${textClass} text-center italic`}>
-          "I'm gonna be Hokage one day."
+          "You are what you believe in. You become that which you believe you can become."
         </p>
-        <div className="mt-2 flex justify-center">
-          <img
-            src="https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=100"
-            alt="Avatar"
-            className="w-12 h-12 rounded-full border-2 border-yellow-400"
-          />
-        </div>
       </div>
     </div>
   );

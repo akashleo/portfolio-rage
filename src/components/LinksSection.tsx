@@ -45,19 +45,19 @@ const LinksSection = () => {
   const iconClass = theme === "dark" ? "text-gray-400" : "text-gray-500";
 
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "#", color: "hover:text-white" },
-    { name: "X", icon: XIcon, url: "#", color: "hover:text-blue-400" },
-    { name: "Gmail", icon: Mail, url: "#", color: "hover:text-red-400" },
+    { name: "GitHub", icon: Github, url: "https://github.com/akashleo", color: "hover:text-white" },
+    { name: "X", icon: XIcon, url: "https://x.com/akashleo_tw", color: "hover:text-blue-400" },
+    { name: "Gmail", icon: Mail, url: "mailTo:akashleo2009@gmail.com", color: "hover:text-red-400" },
     {
       name: "Bluesky",
       icon: BlueskyIcon,
-      url: "#",
+      url: "https://bsky.app/profile/akashleo.bsky.social",
       color: "hover:text-blue-500",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "#",
+      url: "https://www.linkedin.com/in/akash-ghosh-0271401b/",
       color: "hover:text-blue-600",
     },
   ];
@@ -72,6 +72,8 @@ const LinksSection = () => {
               <a
                 key={link.name}
                 href={link.url}
+                target="_blank"
+                rel="noreferrer"
                 className={`flex items-center justify-center p-3 ${linkBgClass} rounded-lg transition-all duration-200 ${link.color}`}
               >
                 <link.icon className={`w-6 h-6 ${iconClass}`} />

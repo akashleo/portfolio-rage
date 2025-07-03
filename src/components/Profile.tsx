@@ -3,7 +3,7 @@ import { MapPin, Circle } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 const Profile = () => {
-  const { toggleBackgroundEffect, theme, backgroundEffect } = useTheme();
+  const { toggleBackgroundEffect, theme, backgroundEffect, currentTime } = useTheme();
   const bengaliTextRef = useRef<HTMLSpanElement>(null);
   const [showTooltip, setShowTooltip] = useState(false);
   
@@ -67,9 +67,7 @@ const Profile = () => {
       <div className={`${bgClass} rounded-xl border`}>
         <div className="p-6">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              A
-            </div>
+            <img className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl" src="https://media.licdn.com/dms/image/v2/D5603AQHG4ZNePwpC1g/profile-displayphoto-scale_400_400/B56ZfNpMeoGoAg-/0/1751501818526?e=1756944000&v=beta&t=Cmc4kTN3PmLDn9WiH0nBr-GMRzM99dk4QJ_woVLFnjw"/>
             <div>
               <h1 className={`text-2xl font-bold ${textClass}`}>akash ghosh.</h1>
               <p className={secondaryTextClass}>@akashleo_tw</p>
@@ -139,14 +137,14 @@ const Profile = () => {
               <Circle className="w-2 h-2 fill-green-400 text-green-400" />
               <span className="text-green-400">Available for work</span>
               <span className="text-gray-500 ml-2">
-                06/29/2025, 04:59:49 PM
+                {currentTime}
               </span>
             </div>
           </div>
 
           <div className="rounded-xl flex items-end justify-end">
             <img
-              src="../public/happy-guy.png"
+              src="/happy-guy.png"
               alt="think-explode"
               className="h-auto w-40 object-contain rounded-br-xl"
             />
@@ -166,7 +164,7 @@ const Profile = () => {
         </div>
         <div className="rounded-xl flex items-center justify-center">
           <img
-            src="../public/table-flip-2.gif"
+            src="/table-flip-2.gif"
             alt="think-explode"
             className="h-auto w-40 object-contain "
           />

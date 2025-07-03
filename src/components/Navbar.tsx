@@ -29,7 +29,7 @@ const Navbar = () => {
     if (theme === 'dark') {
       setTheme('light');
     } else if (theme === 'light') {
-      setTheme('system');
+      setTheme('dusk');
     } else {
       setTheme('dark');
     }
@@ -44,41 +44,54 @@ const Navbar = () => {
     boxShadow: 'inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7), inset 0 0 3px 1px rgba(255, 255, 255, 0.7), 0 8px 32px rgba(0, 0, 0, 0.1)',
   };
 
-  // Determine text shadow based on theme
-  const getTextShadowClass = (isActive: boolean) => {
+  // Get base text color based on theme
+  const getBaseTextColor = () => {
+    if (theme === 'light') return 'text-[#141852]';
+    if (theme === 'dusk') return 'text-[#6B4984]';
+    return 'text-[#fdf4dc]'; // dark theme
+  };
+
+  // Get hover text color based on theme
+  const getHoverTextColor = () => {
+    if (theme === 'light') return 'hover:text-[#141852]';
+    if (theme === 'dusk') return 'hover:text-[#6B4984]';
+    return 'hover:text-[#fdf4dc]'; // dark theme
+  };
+
+  const baseTextColor = getBaseTextColor();
+  const hoverTextColor = getHoverTextColor();
+
+  // Determine text classes based on active state
+  const getTextClass = (isActive: boolean) => {
     if (isActive) {
-      return theme === 'dark'
-        ? 'text-warm-white drop-shadow-[0_0_8px_rgba(255,248,220,0.8)]'
-        : 'text-[#87CEEB] drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]';
+      return `${baseTextColor} drop-shadow-[0_0_8px_currentColor] opacity-100`;
     } else {
-      return theme === 'dark'
-        ? 'text-gray-400 hover:text-warm-white hover:drop-shadow-[0_0_8px_rgba(255,248,220,0.8)]'
-        : 'text-gray-400 hover:text-[#87CEEB] hover:drop-shadow-[0_0_8px_rgba(135,206,235,0.8)]';
+      return `${baseTextColor} opacity-70 ${hoverTextColor} hover:drop-shadow-[0_0_8px_currentColor] hover:opacity-100`;
     }
   };
 
   return (
     <nav 
-      className="sticky top-4 z-50 rounded-2xl mb-4 w-full transition-all duration-300 overflow-hidden ${bgClass} border ${shadowClass}"
+      className="sticky top-4 z-50 rounded-2xl mb-4 w-full transition-all duration-300 overflow-hidden"
       style={liquidGlassStyle}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-3 md:px-5">
         <div className="flex items-center justify-between h-16">
           {/* Left side - Logo with home button */}
           <div className="flex items-center space-x-3 md:space-x-4">
             <div className="text-white font-bold text-xl cursor-pointer">
-              <img src="/ag_logo.png" alt="logo" className="h-16 w-16 md:h-20 md:w-20" />
+              <img src="/ag_logo.png" alt="logo" className="h-10 w-14 md:h-10 md:w-14" />
             </div>
             
             {/* Home button (only visible on non-home routes) */}
             {isNonHomeRoute && (
               <Link 
                 to="/" 
-                className={`font-bold ${getTextShadowClass(false)} transition-all duration-300`}
+                className={`font-bold ${getTextClass(false)} transition-all duration-300`}
                 aria-label="Return to home"
                 title="Return to home"
               >
-                <Undo2 className="w-5 h-5" />
+                <Undo2 className="w-7 h-7" />
               </Link>
             )}
           </div>
@@ -88,20 +101,20 @@ const Navbar = () => {
 
           <Link  
               to="/resume" 
-              className={`font-bold transition-all duration-300 ${getTextShadowClass(location.pathname === '/blogs')}`}
+              className={`font-bold transition-all duration-300 ${getTextClass(location.pathname === '/resume')}`}
             >
               _resume
             </Link>
             <Link 
               to="/blogs" 
-              className={`font-bold transition-all duration-300 ${getTextShadowClass(location.pathname === '/blogs')}`}
+              className={`font-bold transition-all duration-300 ${getTextClass(location.pathname === '/blogs')}`}
             >
               _blogs
             </Link>
             
             <Link 
               to="/projects" 
-              className={`font-bold transition-all duration-300 ${getTextShadowClass(location.pathname === '/projects')}`}
+              className={`font-bold transition-all duration-300 ${getTextClass(location.pathname === '/projects')}`}
             >
               _projects
             </Link>
@@ -109,14 +122,14 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button 
               onClick={cycleTheme}
-              className={`font-bold ${getTextShadowClass(false)} transition-all duration-300`}
+              className={`font-bold ${getTextClass(false)} transition-all duration-300`}
               aria-label="Toggle theme"
-              title={`Current theme: ${theme === 'system' ? 'dusk' : theme}`}
+              title={`Current theme: ${theme}`}
             >
               <div className="w-5 h-5 flex items-center justify-center">
                 {theme === 'dark' && <Moon className="w-5 h-5" />}
                 {theme === 'light' && <Sun className="w-5 h-5" />}
-                {theme === 'system' && <SunMoon className="w-5 h-5" />}
+                {theme === 'dusk' && <SunMoon className="w-5 h-5" />}
               </div>
             </button>
           </div>

@@ -19,15 +19,19 @@ const textClass = theme === 'dark'
   // Blog items
   const blogs = [
     {
-      title: "Building with React 18",
+      title: "Picking up Angular as a React developer",
       date: "June 15, 2023",
     },
     {
-      title: "CSS Grid vs Flexbox",
+      title: "How I put clouds in my portfolio",
       date: "May 22, 2023",
     },
     {
-      title: "TypeScript Best Practices",
+      title: "That time when i created a npm package that didn't exist",
+      date: "April 10, 2023",
+    },
+    {
+      title: "A long journey building Emoquiz",
       date: "April 10, 2023",
     }
   ];

@@ -9,7 +9,7 @@ const ThemeToggle: React.FC = () => {
     if (theme === 'dark') {
       setTheme('light');
     } else if (theme === 'light') {
-      setTheme('system');
+      setTheme('dusk');
     } else {
       setTheme('dark');
     }
@@ -24,7 +24,7 @@ const ThemeToggle: React.FC = () => {
           : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200/50'
       } rounded-lg transition-colors duration-200 flex items-center gap-2`}
       aria-label="Toggle theme"
-      title={`Current theme: ${theme === 'system' ? 'dusk' : theme}`}
+      title={`Current theme: ${theme}`}
     >
       <div className="relative w-8 h-8 flex items-center justify-center">
         {theme === 'dark' && (
@@ -33,7 +33,7 @@ const ThemeToggle: React.FC = () => {
         {theme === 'light' && (
           <Sun className="w-5 h-5 absolute transition-all duration-300 transform scale-100 opacity-100" />
         )}
-        {theme === 'system' && (
+        {theme === 'dusk' && (
           <SunMoon className="w-5 h-5 absolute transition-all duration-300 transform scale-100 opacity-100" />
         )}
       </div>

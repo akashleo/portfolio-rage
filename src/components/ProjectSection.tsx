@@ -21,16 +21,16 @@ const ProjectSection = () => {
   // Project items
   const projects = [
     {
-      title: "Portfolio Nexus",
-      tech: "React, TypeScript, Tailwind"
+      title: "Hoplist",
+      tech: "React, CSS"
     },
     {
-      title: "E-Commerce Platform",
-      tech: "Next.js, MongoDB, Stripe"
+      title: "EmoQuiz",
+      tech: "MERN, Ant design, GCP"
     },
     {
-      title: "Weather App",
-      tech: "React Native, OpenWeather API"
+      title: "Dad-jokes explained",
+      tech: "React , Dad jokes API, OpenAI Api"
     }
   ];
   
