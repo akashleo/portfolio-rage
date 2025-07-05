@@ -8,7 +8,9 @@ const ProjectSection = () => {
   // Dynamic classes based on theme
   const bgClass = theme === 'dark' 
     ? "bg-gradient-to-br from-purple-600 to-purple-800 text-white" 
-    : "bg-neutral-100 text-[#141852]";
+    : theme === 'dusk'
+    ? "bg-gradient-to-br from-purple-300 to-purple-500 text-white"
+    : "bg-gradient-to-br from-purple-100 to-purple-200 text-[#141852]";
   
   const borderClass = theme === 'dark'
     ? ""
@@ -16,6 +18,8 @@ const ProjectSection = () => {
   
   const textClass = theme === 'dark'
     ? "text-gray-200"
+    : theme === 'dusk'
+    ? "text-gray-100"
     : "text-gray-700";
   
   // Project items

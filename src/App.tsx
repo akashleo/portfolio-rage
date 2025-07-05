@@ -17,8 +17,8 @@ function App() {
       <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))] relative">
         {/* Original background is at z-index 0 (default) */}
         
-        {/* Cloud animation background - z-index 10 (sky) and z-index 30 (clouds) */}
-        {(backgroundEffect === 'clouds' || isAnimating) && <CloudAnimation />}
+        {/* Cloud animation background - Always rendered for background colors */}
+        <CloudAnimation />
         
         {/* Main content - z-index 20 (middle layer for component tiles) */}
         <div className="container mx-auto px-4 py-8">

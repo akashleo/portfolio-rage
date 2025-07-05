@@ -28,16 +28,15 @@ const TechStack = () => {
   
   const frontendTechs = [
     'React', 'Next.js', 'Shadcn', 'SCSS', 'Tailwindcss', 
-    'Framer-Motion', 'Recoil', 'Tanstack Query'
+    'Framer-Motion', 'Recoil', 'Tanstack Query', 'Redux', 'Jest', 'Playwright'
   ];
 
   const backendTechs = [
-    'Node.js', 'Hono.js', 'Express.js', 'NPM'
+    'Node.js', 'Bun.js', 'Express.js', 'NPM', 'FastAPI'
   ];
 
   const dbServices = [
-    'Cloudflare Workers', 'Docker', 'Appwrite', 
-    'Supabase', 'Prisma ORM', 'Postman', 'Postgres', 'MongoDB'
+    'GCP', 'Docker', 'Firebase', 'Prisma ORM', 'Postman', 'Postgres', 'MongoDB'
   ];
 
   const TechSection = ({ 

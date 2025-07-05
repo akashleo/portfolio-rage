@@ -5,16 +5,20 @@ const BlogSection = () => {
   
   // Dynamic classes based on theme
   const bgClass = theme === 'dark' 
-  ? "bg-gradient-to-br from-green-600 to-green-800 text-white" 
-  : "bg-neutral-100 text-[#141852]";
+    ? "bg-gradient-to-br from-green-600 to-green-800 text-white" 
+    : theme === 'dusk'
+    ? "bg-gradient-to-br from-green-300 to-green-500 text-white"
+    : "bg-gradient-to-br from-green-100 to-green-200 text-[#141852]";
 
-const borderClass = theme === 'dark'
-  ? ""
-  : "border border-gray-300";
+  const borderClass = theme === 'dark'
+    ? ""
+    : "border border-gray-300";
 
-const textClass = theme === 'dark'
-  ? "text-gray-200"
-  : "text-gray-700";
+  const textClass = theme === 'dark'
+    ? "text-gray-200"
+    : theme === 'dusk'
+    ? "text-gray-100"
+    : "text-gray-700";
   
   // Blog items
   const blogs = [

@@ -10,6 +10,8 @@ interface ThemeContextType {
   toggleBackgroundEffect: () => void;
   isAnimating: boolean;
   currentTime: string;
+  isUserControlled: boolean;
+  resetToAutoTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -43,10 +45,30 @@ const getCurrentTimeString = (): string => {
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(getThemeByTime);
+  // Check if user has a saved theme preference
+  const savedTheme = localStorage.getItem('userTheme') as Theme | null;
+  const hasUserPreference = savedTheme !== null;
+  
+  // Use saved theme if available, otherwise use time-based theme
+  const [theme, setThemeState] = useState<Theme>(savedTheme || getThemeByTime());
   const [backgroundEffect, setBackgroundEffect] = useState<BackgroundEffect>('default');
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentTime, setCurrentTime] = useState<string>(getCurrentTimeString);
+  const [isUserControlled, setIsUserControlled] = useState<boolean>(hasUserPreference);
+
+  // Custom setTheme that marks the theme as user-controlled
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
+    setIsUserControlled(true);
+    localStorage.setItem('userTheme', newTheme);
+  };
+
+  // Reset to automatic time-based theme
+  const resetToAutoTheme = () => {
+    localStorage.removeItem('userTheme');
+    setIsUserControlled(false);
+    setThemeState(getThemeByTime());
+  };
 
   const toggleBackgroundEffect = () => {
     if (backgroundEffect === 'default') {
@@ -63,18 +85,14 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Update time and theme every second
+  // Update time every second (but not theme if user has manually set it)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(getCurrentTimeString());
-      const newTheme = getThemeByTime();
-      if (newTheme !== theme) {
-        setTheme(newTheme);
-      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [theme]);
+  }, []);
 
   useEffect(() => {
     // Apply theme to document
@@ -82,21 +100,20 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     root.classList.remove('light', 'dark', 'dusk');
     root.classList.add(theme);
     
-    // Set background colors based on theme and background effect
-    const backgroundWrap = document.getElementById('background-wrap');
-    if (backgroundWrap) {
-      if (theme === 'light') {
-        backgroundWrap.style.setProperty('background-color', backgroundEffect === 'clouds' ? '#87CEEB' : '#fdf5e0');
-      } else if (theme === 'dusk') {
-        backgroundWrap.style.setProperty('background-color', backgroundEffect === 'clouds' ? '#DFBBA9' : '#89b7ba');
-      } else if (theme === 'dark') {
-        backgroundWrap.style.setProperty('background-color', backgroundEffect === 'clouds' ? '#141852' : '#000000');
-      }
-    }
+    // Background colors are now handled directly in the CloudAnimation component
   }, [theme, backgroundEffect]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, backgroundEffect, toggleBackgroundEffect, isAnimating, currentTime }}>
+    <ThemeContext.Provider value={{ 
+      theme, 
+      setTheme, 
+      backgroundEffect, 
+      toggleBackgroundEffect, 
+      isAnimating, 
+      currentTime,
+      isUserControlled,
+      resetToAutoTheme
+    }}>
       {children}
     </ThemeContext.Provider>
   );

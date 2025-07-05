@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Undo2, Sun, Moon, SunMoon } from 'lucide-react';
+import { Undo2, Sun, Moon, SunMoon, Clock } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, isUserControlled, resetToAutoTheme } = useTheme();
   const location = useLocation();
   
   useEffect(() => {
@@ -35,6 +35,13 @@ const Navbar = () => {
     }
   };
 
+  const handleThemeRightClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isUserControlled) {
+      resetToAutoTheme();
+    }
+  };
+
   // Liquid glass styles
   const liquidGlassStyle = {
     background: 'transparent',
@@ -47,14 +54,14 @@ const Navbar = () => {
   // Get base text color based on theme
   const getBaseTextColor = () => {
     if (theme === 'light') return 'text-[#141852]';
-    if (theme === 'dusk') return 'text-[#6B4984]';
+    if (theme === 'dusk') return 'text-[#140B0B]';
     return 'text-[#fdf4dc]'; // dark theme
   };
 
   // Get hover text color based on theme
   const getHoverTextColor = () => {
     if (theme === 'light') return 'hover:text-[#141852]';
-    if (theme === 'dusk') return 'hover:text-[#6B4984]';
+    if (theme === 'dusk') return 'hover:text-[#140B0B]';
     return 'hover:text-[#fdf4dc]'; // dark theme
   };
 
@@ -120,18 +127,25 @@ const Navbar = () => {
             </Link>
             
             {/* Theme Toggle */}
-            <button 
-              onClick={cycleTheme}
-              className={`font-bold ${getTextClass(false)} transition-all duration-300`}
-              aria-label="Toggle theme"
-              title={`Current theme: ${theme}`}
-            >
-              <div className="w-5 h-5 flex items-center justify-center">
-                {theme === 'dark' && <Moon className="w-5 h-5" />}
-                {theme === 'light' && <Sun className="w-5 h-5" />}
-                {theme === 'dusk' && <SunMoon className="w-5 h-5" />}
-              </div>
-            </button>
+            <div className="relative">
+              <button 
+                onClick={cycleTheme}
+                onContextMenu={handleThemeRightClick}
+                className={`font-bold ${getTextClass(false)} transition-all duration-300 relative`}
+                aria-label="Toggle theme"
+                title={isUserControlled ? `Current theme: ${theme} (manual) - Right-click to reset to auto` : `Current theme: ${theme} (auto)`}
+              >
+                <div className="w-5 h-5 flex items-center justify-center">
+                  {theme === 'dark' && <Moon className="w-5 h-5" />}
+                  {theme === 'light' && <Sun className="w-5 h-5" />}
+                  {theme === 'dusk' && <SunMoon className="w-5 h-5" />}
+                </div>
+                {/* Small indicator for user-controlled theme */}
+                {isUserControlled && (
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
