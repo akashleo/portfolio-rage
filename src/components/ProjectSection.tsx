@@ -10,7 +10,7 @@ const ProjectSection = () => {
     ? "bg-gradient-to-br from-purple-600 to-purple-800 text-white" 
     : theme === 'dusk'
     ? "bg-gradient-to-br from-purple-300 to-purple-500 text-white"
-    : "bg-gradient-to-br from-purple-100 to-purple-200 text-[#141852]";
+    : "bg-gradient-to-br from-purple-100 to-purple-300 text-[#141852]";
   
   const borderClass = theme === 'dark'
     ? ""

@@ -14,10 +14,10 @@ const Home = () => {
       <div className="flex flex-col gap-6 lg:hidden">
         <Profile />
         <LinksSection />
-        <TechStack />
-        <WorkedAt />
         <ProjectSection />
         <BlogSection />
+        <TechStack />
+        <WorkedAt />
         <MediaSection />
       </div>
 

@@ -208,3 +208,104 @@ nav.sticky {
 .animate-fadeout {
   animation: fadeOut 1s ease-out forwards;
 }
+
+/* Subtle glow animation for clickable Bengali text */
+@keyframes subtleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 4px rgba(135, 206, 235, 0.4), 0 0 8px rgba(135, 206, 235, 0.2);
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 8px rgba(135, 206, 235, 0.6), 0 0 16px rgba(135, 206, 235, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 2s ease-in-out infinite;
+  color: #87CEEB;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Enhanced glow animation for more visibility */
+@keyframes prominentGlow {
+  0%, 100% { 
+    text-shadow: 0 0 6px rgba(135, 206, 235, 0.5), 0 0 12px rgba(135, 206, 235, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 12px rgba(135, 206, 235, 0.8), 0 0 24px rgba(135, 206, 235, 0.4);
+    transform: scale(1.08);
+  }
+}
+
+/* Bouncing arrow animation */
+@keyframes bounceArrow {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-3px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Click indicator styles */
+.click-indicator {
+  position: relative;
+}
+
+/* Delayed bouncing arrow animation */
+@keyframes bounceArrowDelayed {
+  0% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0;
+  }
+  10%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-3px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+.click-indicator::after {
+  content: "👆";
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 14px;
+  animation: bounceArrowDelayed 1.5s ease-in-out infinite;
+  pointer-events: none;
+  /* Delayed appearance - shows after 3 seconds */
+  animation-delay: 1s;
+}
+
+.animate-prominent-glow {
+  animation: prominentGlow 2s ease-in-out infinite;
+  color: #87CEEB;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Dark theme version */
+.dark .animate-subtle-glow,
+.dark .animate-prominent-glow {
+  color: #87CEEB;
+}
+
+/* Light theme version */
+.light .animate-subtle-glow,
+.light .animate-prominent-glow {
+  color: #4682B4;
+}
+
+/* Dusk theme version */
+.dusk .animate-subtle-glow,
+.dusk .animate-prominent-glow {
+  color: #9370DB;
+}

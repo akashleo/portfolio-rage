@@ -76,7 +76,7 @@ const Profile = () => {
               <div className={`${textClass} font-mono font-bold text-lg relative`}>
                 <span
                   ref={bengaliTextRef}
-                  className={`transition-all duration-300 hover:text-blue-400 inline-block cursor-pointer ${backgroundEffect === 'clouds' ? 'animate-pulse' : ''}`}
+                  className={`transition-all duration-300 hover:text-blue-400 inline-block cursor-pointer ${backgroundEffect === 'clouds' ? 'animate-pulse' : 'animate-prominent-glow click-indicator'}`}
                   onClick={toggleBackgroundEffect}
                   onMouseEnter={(e) => {
                     setShowTooltip(true);

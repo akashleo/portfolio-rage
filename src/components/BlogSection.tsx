@@ -8,7 +8,7 @@ const BlogSection = () => {
     ? "bg-gradient-to-br from-green-600 to-green-800 text-white" 
     : theme === 'dusk'
     ? "bg-gradient-to-br from-green-300 to-green-500 text-white"
-    : "bg-gradient-to-br from-green-100 to-green-200 text-[#141852]";
+    : "bg-gradient-to-br from-green-100 to-green-300 text-[#141852]";
 
   const borderClass = theme === 'dark'
     ? ""
