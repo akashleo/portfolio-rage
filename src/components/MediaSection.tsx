@@ -49,7 +49,7 @@ const MediaSection = () => {
 
         <div className="relative group cursor-pointer">
           <img
-            src="/pic4.jpg"
+            src="/cooking.jpeg"
             alt="Planet surface"
             className="w-full h-48 object-cover rounded-lg"
           />
@@ -58,18 +58,22 @@ const MediaSection = () => {
       </div>
 
       <div className="mt-4 text-sm">
-        <p className={`mb-1 ${secondaryTextClass}`}>what i do on weekends</p>
+        <p className={`mb-1 ${secondaryTextClass}`}>This is what I do on weekends</p>
         <p className="text-xs text-gray-500">
           bike rides • cooking • concerts • guitar
         </p>
       </div>
 
       {/* Quote Section */}
-      <div className={`mt-6 p-4 ${quoteBoxClass} rounded-lg`}>
-        <p className={`${textClass} text-center italic`}>
-          "You are what you believe in. You become that which you believe you
-          can become."
-        </p>
+      <div className={`mt-6 ${quoteBoxClass} rounded-lg flex items-center justify-between`}>
+        <div className="flex items-center p-4">
+          <span className={`${textClass} text-6xl font-bold`}>fin.</span>
+        </div>
+        <img 
+            src="/sleep.gif" 
+            alt="sleep guy" 
+            className="h-auto w-24 object-contain rounded-r-xl"
+          />
       </div>
     </div>
   );

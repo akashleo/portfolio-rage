@@ -69,7 +69,7 @@ const TechStack = () => {
   return (<div className={`${bgClass} rounded-xl border`}>
     <div className='p-6'>
       <div className="mb-8">
-        <h2 className={`text-2xl font-bold ${textClass}`}>&gt; select * from skillset</h2>
+        <h2 className={`text-4xl font-bold ${textClass}`}>&gt; select * from skillset</h2>
       </div>
 
       <TechSection title="Frontend" icon={Code2} techs={frontendTechs} />

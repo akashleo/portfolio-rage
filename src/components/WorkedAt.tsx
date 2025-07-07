@@ -30,28 +30,33 @@ const WorkedAt = () => {
     {
       name: "PhonePe",
       role: "Software Engineer [contract]",
-      period: "2023 - Present",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg"
+      period: "2023 August - 2025 June",
+      logo: "/phonepe.png"
     },
     {
-      name: "Microsoft",
+      name: "Spurtree",
       role: "Software Engineer",
-      period: "2019 - 2022",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/150px-Microsoft_logo.svg.png"
+      period: "2021 December - 2023 July",
+      logo: "/spurtree.jpeg"
     },
     {
-      name: "Amazon",
-      role: "Frontend Developer",
-      period: "2017 - 2019",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/150px-Amazon_logo.svg.png"
+      name: "Cognizant",
+      role: "Programmer Analyst",
+      period: "2021 May - 2021 December",
+      logo: "/cognizant.png"
+    },
+    {
+      name: "Keross R&D",
+      role: "Intern",
+      period: "2020 January - 2021 May",
+      logo: "/keross.jpeg"
     }
   ];
 
   return (
     <div className={`${bgClass} rounded-xl border p-6`}>
       <div className="flex items-center gap-2 mb-6">
-        <Briefcase className={`w-5 h-5 ${iconClass}`} />
-        <h2 className={`text-2xl font-bold ${textClass}`}>worked at.</h2>
+        <h2 className={`text-4xl font-bold ${textClass}`}>worked at.</h2>
       </div>
       
       <div className="space-y-4">
@@ -72,7 +77,6 @@ const WorkedAt = () => {
                 <p className="text-sm text-gray-500">{company.period}</p>
               </div>
             </div>
-            <ExternalLink className={`w-4 h-4 ${iconClass} cursor-pointer`} />
           </div>
         ))}
       </div>

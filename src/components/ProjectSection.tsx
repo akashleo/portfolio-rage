@@ -33,8 +33,16 @@ const ProjectSection = () => {
       tech: "MERN, Ant design, GCP"
     },
     {
-      title: "Dad-jokes explained",
-      tech: "React , Dad jokes API, OpenAI Api"
+      title: "Emailer Modifier",
+      tech: "Next.js, Tailwind CSS, Supabase"
+    },
+    {
+      title: "Games Hub",
+      tech: "Microfrontend, React, Svelte, Vite, Vue"
+    },
+    {
+      title: "glasnost-library",
+      tech: "React , CSS, npm"
     }
   ];
   
