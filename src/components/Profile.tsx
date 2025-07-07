@@ -38,8 +38,8 @@ const Profile = () => {
     : "text-gray-500";
     
   const codeClass = theme === 'dark'
-    ? "text-blue-400 text-xl"
-    : "text-blue-600 text-xl";
+    ? "text-blue-400"
+    : "text-blue-600";
     
   const tooltipClass = theme === 'dark'
     ? "bg-gray-800 text-gray-100"
