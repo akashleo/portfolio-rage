@@ -309,3 +309,34 @@ nav.sticky {
 .dusk .animate-prominent-glow {
   color: #9370DB;
 }
+
+/* Typing animation glow effect */
+@keyframes typingGlow {
+  0%, 100% { 
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% { 
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.typing-glow {
+  animation: typingGlow 2s ease-in-out infinite;
+  word-break: break-all;
+}
+
+/* Theme-specific typing glow colors */
+.light .typing-glow {
+  color: #4682B4;
+  text-shadow: 0 0 5px #4682B4 !important;
+}
+
+.dark .typing-glow {
+  color: #87CEEB;
+  text-shadow: 0 0 5px #87CEEB, 0 0 10px #87CEEB;
+}
+
+.dusk .typing-glow {
+  color: #9370DB;
+  text-shadow: 0 0 5px #9370DB, 0 0 10px #9370DB;
+}

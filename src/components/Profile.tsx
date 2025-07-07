@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Circle } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { TypeAnimation } from 'react-type-animation';
 
 const Profile = () => {
   const { toggleBackgroundEffect, theme, backgroundEffect, currentTime } = useTheme();
@@ -37,8 +38,8 @@ const Profile = () => {
     : "text-gray-500";
     
   const codeClass = theme === 'dark'
-    ? "text-blue-400"
-    : "text-blue-600";
+    ? "text-blue-400 text-xl"
+    : "text-blue-600 text-xl";
     
   const tooltipClass = theme === 'dark'
     ? "bg-gray-800 text-gray-100"
@@ -69,7 +70,7 @@ const Profile = () => {
           <div className="flex items-start gap-4">
             <img className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl" src="https://media.licdn.com/dms/image/v2/D5603AQHG4ZNePwpC1g/profile-displayphoto-scale_400_400/B56ZfNpMeoGoAg-/0/1751501818526?e=1756944000&v=beta&t=Cmc4kTN3PmLDn9WiH0nBr-GMRzM99dk4QJ_woVLFnjw"/>
             <div>
-              <h1 className={`text-2xl font-bold ${textClass}`}>akash ghosh.</h1>
+              <h1 className={`text-4xl font-bold ${textClass}`}>akash ghosh.</h1>
               <p className={secondaryTextClass}>@akashleo_tw</p>
             </div>
             <div className="ml-auto text-right">
@@ -126,11 +127,32 @@ const Profile = () => {
           <div className="space-y-3 p-6">
             <p className={`${textClass} text-lg`}>
               I build{" "}
-              <span className={`font-semibold ${accentTextClass}`}>Web Apps</span>.
+              <TypeAnimation
+                sequence={[
+                  'Web Apps.',
+                  3000,
+                  'Mobile Apps.', 
+                  3000,
+                  'Backends.',
+                  3000
+                ]}
+                wrapper="span"
+                speed={25}
+                deletionSpeed={50}
+                style={{ 
+                  fontSize: 'inherit',
+                  display: 'inline-block',
+                  wordBreak: 'break-all'
+                }}
+                className="font-semibold typing-glow"
+                repeat={Infinity}
+              />
             </p>
 
             <p className={paragraphClass}>
-              Hello, I'm Akash! a 26 year old developer based in Bengaluru - India.
+              Hello, I'm Akash! a 26 year old Frontend Engineer based in Bengaluru - India.
+              <br />
+              I like playing with code and building cool stuff.
             </p>
 
             <div className="flex items-center gap-2 text-sm">
