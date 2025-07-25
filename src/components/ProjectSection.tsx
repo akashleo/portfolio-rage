@@ -26,23 +26,23 @@ const ProjectSection = () => {
   const projects = [
     {
       title: "Hoplist",
-      tech: "React, CSS"
+      tech: "A simple react horizontal timeline component, has 300+ downloads in the first week of publishing",
     },
     {
       title: "EmoQuiz",
-      tech: "MERN, Ant design, GCP"
+      tech: "A MERN stack Quiz application having user and admin flows, has 20 active users."
     },
     {
       title: "Emailer Modifier",
-      tech: "Next.js, Tailwind CSS, Supabase"
+      tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript"
     },
     {
       title: "Games Hub",
-      tech: "Microfrontend, React, Svelte, Vite, Vue"
+      tech: "A microfrontend application built with React, Svelte, Vite, and Vue"
     },
     {
       title: "glasnost-library",
-      tech: "React , CSS, npm"
+      tech: "A library for building responsive UIs with React, CSS, and npm"
     }
   ];
   
