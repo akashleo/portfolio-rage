@@ -1,5 +1,3 @@
-import React from 'react';
-import { Settings } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const ProjectSection = () => {
@@ -27,22 +25,27 @@ const ProjectSection = () => {
     {
       title: "Hoplist",
       tech: "A simple react horizontal timeline component, has 300+ downloads in the first week of publishing",
+      link: "https://github.com/yourusername/hoplist"
     },
     {
       title: "EmoQuiz",
-      tech: "A MERN stack Quiz application having user and admin flows, has 20 active users."
+      tech: "A MERN stack Quiz application having user and admin flows, has 20 active users.",
+      link: "https://github.com/yourusername/emoquiz"
     },
     {
       title: "Emailer Modifier",
-      tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript"
+      tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript",
+      link: "https://github.com/yourusername/emailer-modifier"
     },
     {
       title: "Games Hub",
-      tech: "A microfrontend application built with React, Svelte, Vite, and Vue"
+      tech: "A dashboard hosting 3 games built in different frameworks (React, Vue, Svelte), implemented using micro-frontends architecture (webpack 5)",
+      link: "https://github.com/yourusername/games-hub"
     },
     {
-      title: "glasnost-library",
-      tech: "A library for building responsive UIs with React, CSS, and npm"
+      title: "Glasnnost UI",
+      tech: "A Glass Tile UI library with 6 components, has over 1000 downloads in the first week of publishing",
+      link: "https://github.com/yourusername/glasnost-ui"
     }
   ];
   
@@ -58,6 +61,14 @@ const ProjectSection = () => {
               <a href="#" className="block hover:opacity-80 transition-opacity">
                 <div className="font-medium">{project.title}</div>
                 <div className={`text-xs ${textClass}`}>{project.tech}</div>
+                <div className="text-xs flex gap-2 mt-1 flex-row">
+                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline">
+                    github
+                  </a>
+                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline">
+                    live
+                  </a>
+                </div>
               </a>
             </li>
           ))}
