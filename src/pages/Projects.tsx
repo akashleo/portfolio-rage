@@ -36,36 +36,29 @@ const Projects = () => {
   
   const projects = [
     {
-      name: 'Portfolio Dashboard',
-      description: 'A modern portfolio dashboard with glassmorphism design and dynamic theme system',
-      tech: ['React', 'TypeScript', 'Tailwind'],
-      stars: 42,
-      github: 'https://github.com/akashghosh/portfolio',
-      live: 'https://akashghosh.xyz'
+      title: "Hoplist",
+      tech: "A simple react horizontal timeline component, has 300+ downloads in the first week of publishing",
+      link: "https://github.com/yourusername/hoplist"
     },
     {
-      name: 'API Gateway',
-      description: 'Microservices API gateway with rate limiting and authentication',
-      tech: ['Node.js', 'Express', 'Redis'],
-      stars: 28,
-      github: 'https://github.com/akashghosh/api-gateway',
-      live: 'https://api.akashghosh.xyz'
+      title: "EmoQuiz",
+      tech: "A MERN stack Quiz application having user and admin flows, has 20 active users.",
+      link: "https://github.com/yourusername/emoquiz"
     },
     {
-      name: 'E-commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      stars: 35,
-      github: 'https://github.com/akashghosh/ecommerce',
-      live: 'https://shop.akashghosh.xyz'
+      title: "Emailer Modifier",
+      tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript",
+      link: "https://github.com/yourusername/emailer-modifier"
     },
     {
-      name: 'Chat Application',
-      description: 'Real-time chat application with WebSocket support',
-      tech: ['React', 'Socket.io', 'Express'],
-      stars: 19,
-      github: 'https://github.com/akashghosh/chat-app',
-      live: 'https://chat.akashghosh.xyz'
+      title: "Games Hub",
+      tech: "A dashboard hosting 3 games built in different frameworks (React, Vue, Svelte), implemented using micro-frontends architecture (webpack 5)",
+      link: "https://github.com/yourusername/games-hub"
+    },
+    {
+      title: "Glasnnost UI",
+      tech: "A Glass Tile UI library with 6 components, has over 1000 downloads in the first week of publishing",
+      link: "https://github.com/yourusername/glasnost-ui"
     }
   ];
 
