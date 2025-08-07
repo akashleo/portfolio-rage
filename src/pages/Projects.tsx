@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink, Github, Star } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -74,29 +73,19 @@ const Projects = () => {
               className={`p-6 ${cardBgClass} rounded-lg transition-colors duration-200`}
             >
               <div className="flex items-start justify-between mb-3">
-                <h2 className={`${cardTextClass} font-semibold text-lg`}>{project.name}</h2>
+                <h2 className={`${cardTextClass} font-semibold text-lg`}>{project.title}</h2>
                 <div className="flex items-center gap-1 text-yellow-400">
                   <Star className="w-4 h-4 fill-current" />
-                  <span className="text-sm">{project.stars}</span>
+                  <span className="text-sm">{project.link}</span>
                 </div>
               </div>
               
-              <p className={`${descriptionClass} text-sm mb-4 leading-relaxed`}>{project.description}</p>
+              <p className={`${descriptionClass} text-sm mb-4 leading-relaxed`}>{project.tech}</p>
               
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className={`px-2 py-1 ${tagClass} text-xs rounded-md`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
               
               <div className="flex items-center gap-3">
                 <a 
-                  href={project.github}
+                  href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-1 ${iconClass} hover:scale-105 transition-transform`}
@@ -105,7 +94,7 @@ const Projects = () => {
                   <span className="text-sm">Code</span>
                 </a>
                 <a 
-                  href={project.live}
+                  href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-1 ${iconClass} hover:scale-105 transition-transform`}
