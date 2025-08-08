@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Eye, Heart, MessageCircle, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const Blogs = () => {
@@ -7,139 +7,94 @@ const Blogs = () => {
   
   // Dynamic classes based on theme
   const bgClass = theme === 'dark' 
-    ? "bg-gray-900 border-gray-800" 
-    : "bg-white border-gray-300";
-  
-  const textClass = theme === 'dark'
-    ? "text-white"
-    : "text-[#141852]";
-    
-  const cardBgClass = theme === 'dark'
-    ? "bg-gray-800 hover:bg-gray-700"
-    : "bg-gray-50 hover:bg-gray-100";
-    
-  const cardTextClass = theme === 'dark'
-    ? "text-white"
-    : "text-[#141852]";
-    
-  const descriptionClass = theme === 'dark'
-    ? "text-gray-300"
-    : "text-gray-600";
-    
-  const metaClass = theme === 'dark'
-    ? "text-gray-400"
-    : "text-gray-500";
-    
-  const tagClass = theme === 'dark'
-    ? "bg-gray-700 text-gray-300"
-    : "bg-gray-200 text-gray-700";
+    ? "bg-gradient-to-br from-green-600 to-green-800 text-white" 
+    : theme === 'dusk'
+    ? "bg-gradient-to-br from-green-300 to-green-500 text-white"
+    : "bg-gradient-to-br from-green-100 to-green-300 text-[#141852]";
 
+  const borderClass = theme === 'dark'
+    ? ""
+    : "border border-gray-300";
+
+  const textClass = theme === 'dark'
+    ? "text-gray-200"
+    : theme === 'dusk'
+    ? "text-gray-100"
+    : "text-gray-700";
+
+  // Blog items
   const blogs = [
     {
-      title: 'Building Modern Web Apps with React',
-      excerpt: 'A comprehensive guide to building scalable React applications with modern best practices, including hooks, context, and performance optimization techniques...',
-      date: '2024-01-15',
-      readTime: '8 min read',
-      views: 1240,
-      likes: 56,
-      comments: 12,
-      tags: ['React', 'JavaScript', 'Frontend']
+      title: "Picking up Angular as a React developer",
+      date: "June 15, 2023",
+      slug: "angular-for-react-devs",
+      excerpt:
+        "As a long-time React developer, stepping into Angular felt both familiar and refreshingly different. Here’s how I approached components, state, and tooling in Angular from a React mindset",
     },
     {
-      title: 'The Future of Backend Development',
-      excerpt: 'Exploring emerging trends in backend technologies and what developers should expect in the coming years, including serverless architectures and microservices...',
-      date: '2024-01-08',
-      readTime: '6 min read',
-      views: 892,
-      likes: 43,
-      comments: 8,
-      tags: ['Backend', 'Node.js', 'Architecture']
+      title: "How I put clouds in my portfolio",
+      date: "May 22, 2023",
+      slug: "clouds-in-portfolio",
+      excerpt:
+        "I wanted subtle depth and motion without sacrificing performance. This post breaks down the cloud animation layers, rendering strategy, and a few gotchas I hit along the way",
     },
     {
-      title: 'Optimizing Database Performance',
-      excerpt: 'Essential techniques for improving database query performance and scaling strategies for high-traffic applications. Learn about indexing, caching, and more...',
-      date: '2024-01-02',
-      readTime: '10 min read',
-      views: 756,
-      likes: 38,
-      comments: 15,
-      tags: ['Database', 'MongoDB', 'Performance']
+      title: "That time when I created an npm package that didn't exist",
+      date: "April 10, 2023",
+      slug: "creating-npm-package",
+      excerpt:
+        "Scratching my own itch led to a tiny utility I couldn’t find on npm. From API design to publishing and versioning, here’s what I learned building and maintaining it",
     },
     {
-      title: 'TypeScript Best Practices',
-      excerpt: 'Discover advanced TypeScript patterns and best practices that will make your code more maintainable and type-safe. Perfect for intermediate developers...',
-      date: '2023-12-28',
-      readTime: '7 min read',
-      views: 654,
-      likes: 29,
-      comments: 6,
-      tags: ['TypeScript', 'JavaScript', 'Best Practices']
-    }
+      title: "A long journey building Emoquiz",
+      date: "April 10, 2023",
+      slug: "building-emoquiz",
+      excerpt:
+        "Emoquiz started as a weekend idea and turned into a full product. I cover the product iterations, tech choices, user feedback loops, and what I’d do differently",
+    },
   ];
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className={`${bgClass} p-6 rounded-xl border`}>
-        <h1 className={`text-2xl font-bold ${textClass} mb-6`}>MY BLOGS.</h1>
-        
-        <div className="space-y-6">
-          {blogs.map((blog, index) => (
-            <article
-              key={index}
-              className={`p-6 ${cardBgClass} rounded-lg transition-colors duration-200 cursor-pointer hover:shadow-lg`}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <h2 className={`${cardTextClass} font-semibold text-xl mb-2`}>{blog.title}</h2>
-                <div className="flex items-center gap-1 text-yellow-400">
-                  <Heart className="w-4 h-4" />
-                  <span className="text-sm">{blog.likes}</span>
-                </div>
-              </div>
-              
-              <p className={`${descriptionClass} text-sm mb-4 leading-relaxed line-clamp-2`}>
-                {blog.excerpt}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {blog.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`px-2 py-1 ${tagClass} text-xs rounded-md`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-4">
-                  <div className={`flex items-center gap-1 ${metaClass}`}>
-                    <Calendar className="w-4 h-4" />
-                    <span>{new Date(blog.date).toLocaleDateString()}</span>
-                  </div>
-                  <div className={`flex items-center gap-1 ${metaClass}`}>
-                    <Clock className="w-4 h-4" />
-                    <span>{blog.readTime}</span>
-                  </div>
-                </div>
-                
-                <div className={`flex items-center gap-4 ${metaClass}`}>
-                  <div className="flex items-center gap-1">
-                    <Eye className="w-4 h-4" />
-                    <span>{blog.views}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MessageCircle className="w-4 h-4" />
-                    <span>{blog.comments}</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
+      <div className={`${bgClass} ${borderClass} p-6 rounded-xl relative overflow-hidden`}>
+        <div className="relative z-10">
+          <h3 className="text-6xl font-bold mb-4">blogs.</h3>
+
+          {/* Blog tiles */}
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-6">
+            {blogs.map((blog) => (
+              <li
+                key={blog.slug}
+                className={`rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow ${
+                  theme === 'dark'
+                    ? 'bg-black/20 border border-white/10'
+                    : theme === 'dusk'
+                    ? 'bg-white/10 border border-white/20'
+                    : 'bg-white/60 border border-black/5'
+                }`}
+              >
+                <h4 className="text-lg font-semibold leading-snug mb-1">{blog.title}</h4>
+                <div className={`text-xs mb-2 ${textClass}`}>{blog.date}</div>
+                <p className={`text-sm ${textClass}`}>
+                  {blog.excerpt} <Link to={`/blogs/${blog.slug}`} className="underline font-medium">...more</Link>
+                </p>
+              </li>
+            ))}
+          </ul>
+          
+          <div className="flex justify-end">
+            <img 
+              src="/journal.gif" 
+              alt="Journal" 
+              className="h-auto w-24 object-contain rounded-br-xl"
+            />
+          </div>
         </div>
+        <div className="absolute top-0 right-0 w-20 h-20 bg-white bg-opacity-10 rounded-full -translate-y-4 translate-x-4" />
+        <div className="absolute bottom-0 left-0 w-16 h-16 bg-white bg-opacity-5 rounded-full translate-y-4 -translate-x-4" />
       </div>
     </div>
   );
 };
 
-export default Blogs; 
+export default Blogs;
