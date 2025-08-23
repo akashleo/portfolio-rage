@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Undo2, Sun, Moon, SunMoon, Clock } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -8,6 +8,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme, isUserControlled, resetToAutoTheme, backgroundEffect } = useTheme();
   const location = useLocation();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +24,26 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrolled]);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMobileMenuOpen && 
+        mobileMenuRef.current && 
+        hamburgerButtonRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !hamburgerButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   // Check if we're on a non-home route
   const isNonHomeRoute = location.pathname !== '/';
@@ -174,6 +196,7 @@ const Navbar = () => {
             {/* Mobile Hamburger Menu - Visible only on mobile */}
             <div className="md:hidden relative">
               <button 
+                ref={hamburgerButtonRef}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`font-bold ${getTextClass(false)} transition-all duration-300 relative`}
                 aria-label="Toggle mobile menu"
@@ -189,6 +212,7 @@ const Navbar = () => {
               {/* Mobile Dropdown Menu */}
               {isMobileMenuOpen && (
                 <div 
+                  ref={mobileMenuRef}
                   className="absolute right-0 top-full mt-2 w-24 rounded-xl overflow-hidden z-50"
                   style={mobileMenuStyle}
                 >

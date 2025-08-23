@@ -1,4 +1,5 @@
 import { useTheme } from '../context/ThemeContext';
+import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectSection = () => {
   const { theme } = useTheme();
@@ -62,11 +63,11 @@ const ProjectSection = () => {
                 <div className="font-medium">{project.title}</div>
                 <div className={`text-xs ${textClass}`}>{project.tech}</div>
                 <div className="text-xs flex gap-2 mt-1 flex-row">
-                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline">
-                    github
+                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline flex items-center gap-1">
+                    <Github size={14} />
                   </a>
-                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline">
-                    live
+                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline flex items-center gap-1">
+                    <ExternalLink size={14} />
                   </a>
                 </div>
               </a>
