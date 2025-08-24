@@ -26,19 +26,19 @@ const Projects = () => {
   // Hidden demo projects
   const demoProjects = [
     {
-      title: "Secret Chat App",
+      title: "Dad Jokes explained",
       tech: "End-to-end encrypted chat application with disappearing messages",
       github: "https://github.com/yourusername/secret-chat",
       live: "https://secret-chat-demo.netlify.app"
     },
     {
-      title: "AI Image Generator",
+      title: "Slap the Communists",
       tech: "Generate unique images using stable diffusion models",
       github: "https://github.com/yourusername/ai-image-gen",
       live: "https://ai-image-gen.vercel.app"
     },
     {
-      title: "Crypto Dashboard",
+      title: "Rust CLI",
       tech: "Real-time cryptocurrency tracking with portfolio management",
       github: "https://github.com/yourusername/crypto-dash",
       live: "https://crypto-dash-demo.netlify.app"
