@@ -26,27 +26,38 @@ const ProjectSection = () => {
     {
       title: "Hoplist",
       tech: "A simple react horizontal timeline component, has 300+ downloads in the first week of publishing",
-      link: "https://github.com/yourusername/hoplist"
+      link: "https://www.npmjs.com/package/hoplist",
+      github: "https://github.com/akashleo/hoplist"
     },
     {
       title: "EmoQuiz",
       tech: "A MERN stack Quiz application having user and admin flows, has 20 active users.",
-      link: "https://github.com/yourusername/emoquiz"
+      link: "https://emoquiz.xyz",
+      github: "https://github.com/akashleo/quiz_app"
     },
     {
       title: "Emailer Modifier",
       tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript",
-      link: "https://github.com/yourusername/emailer-modifier"
+      link: "https://emailbuilder.akashghosh.xyz/",
+      github: "https://github.com/akashleo/email-builder"
     },
     {
       title: "Games Hub",
       tech: "A dashboard hosting 3 games built in different frameworks (React, Vue, Svelte), implemented using micro-frontends architecture (webpack 5)",
-      link: "https://github.com/yourusername/games-hub"
+      link: "https://github.com/akashleo/games-hub",
+      github: "https://github.com/akashleo/games-hub"
     },
     {
       title: "Glasnnost UI",
       tech: "A Glass Tile UI library with 6 components, has over 1000 downloads in the first week of publishing",
-      link: "https://github.com/yourusername/glasnost-ui"
+      link: "https://glasnost.netlify.app/",
+      github: "https://github.com/akashleo/glasnost-ui"
+    },
+    {
+      title: "React Cloud Animation",
+      tech: "Interactive cloud animation system with theme-aware backgrounds for React applications.",
+      link: "https://cloudanimation.akashghosh.xyz/",
+      github: "https://github.com/akashleo/react-cloud-animation"
     }
   ];
   
@@ -63,11 +74,11 @@ const ProjectSection = () => {
                 <div className="font-medium">{project.title}</div>
                 <div className={`text-xs ${textClass}`}>{project.tech}</div>
                 <div className="text-xs flex gap-2 mt-1 flex-row">
-                  <a href={project.link} target='_blank' className="text-blue-500 hover:underline flex items-center gap-1">
+                  <a href={project.github} target='_blank' className="text-blue-500 hover:underline flex items-center gap-1">
                     <Github size={14} />
                   </a>
                   <a href={project.link} target='_blank' className="text-blue-500 hover:underline flex items-center gap-1">
-                    <ExternalLink size={14} />
+                    <ExternalLink size={14}  />
                   </a>
                 </div>
               </a>

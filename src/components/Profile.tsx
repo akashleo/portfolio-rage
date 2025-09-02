@@ -155,10 +155,12 @@ const Profile = () => {
               I like playing with code and building cool stuff.
             </p>
 
-            <div className="flex items-center gap-2 text-sm">
-              <Circle className="w-2 h-2 fill-green-400 text-green-400" />
-              <span className="text-green-400">Available for work</span>
-              <span className="text-gray-500 ml-2">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-1 md:gap-2 text-sm">
+              <div className="flex items-center gap-2">
+                <Circle className="w-2 h-2 fill-green-400 text-green-400" />
+                <span className="text-green-400">Available for work</span>
+              </div>
+              <span className="text-gray-500 md:ml-2">
                 {currentTime}
               </span>
             </div>

@@ -128,7 +128,14 @@ const Navbar = () => {
           {/* Left side - Logo with home button */}
           <div className="flex items-center space-x-3 md:space-x-4">
             <div className="text-white font-bold text-xl cursor-pointer">
-              <img src="/ag_logo.png" alt="logo" className="h-10 w-14 md:h-10 md:w-14" />
+            <Link 
+                to="/" 
+                className={`font-bold ${getTextClass(false)} transition-all duration-300`}
+                aria-label="Return to home"
+                title="Return to home"
+              >
+                <img src="/ag_logo.png" alt="logo" className="h-10 w-14 md:h-10 md:w-14" />
+              </Link>
             </div>
             
             {/* Home button (only visible on non-home routes) */}

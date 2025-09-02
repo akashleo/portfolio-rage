@@ -43,45 +43,45 @@ const Projects = () => {
       github: "https://github.com/yourusername/crypto-dash",
       live: "https://crypto-dash-demo.netlify.app"
     },
-    {
-      title: "AR Business Card",
-      tech: "Augmented reality business card that displays 3D models and animations",
-      github: "https://github.com/yourusername/ar-business-card",
-      live: "https://ar-business-card.vercel.app"
-    }
   ];
 
   const projects = [
     {
       title: "Hoplist",
       tech: "A simple react horizontal timeline component, has 300+ downloads in the first week of publishing",
-      github: "https://github.com/akashleo/hoplist",
-      live: "https://hoplist-demo.netlify.app"
+      link: "https://www.npmjs.com/package/hoplist",
+      github: "https://github.com/akashleo/hoplist"
     },
     {
       title: "EmoQuiz",
       tech: "A MERN stack Quiz application having user and admin flows, has 20 active users.",
-      github: "https://github.com/akashleo/quiz-app",
-      live: "https://emoquiz.netlify.app"
+      link: "https://emoquiz.xyz",
+      github: "https://github.com/akashleo/quiz_app"
     },
     {
       title: "Emailer Modifier",
       tech: "A tool for modifying email templates, built with Next.js, Tailwind CSS, and TypeScript",
-      github: "https://github.com/yourusername/emailer-modifier",
-      live: "https://emailer-modifier.vercel.app"
+      link: "https://emailbuilder.akashghosh.xyz/",
+      github: "https://github.com/akashleo/email-builder"
     },
     {
       title: "Games Hub",
       tech: "A dashboard hosting 3 games built in different frameworks (React, Vue, Svelte), implemented using micro-frontends architecture (webpack 5)",
-      github: "https://github.com/yourusername/games-hub",
-      live: "https://games-hub.netlify.app"
+      link: "https://github.com/akashleo/games-hub",
+      github: "https://github.com/akashleo/games-hub"
     },
     {
       title: "Glasnnost UI",
       tech: "A Glass Tile UI library with 6 components, has over 1000 downloads in the first week of publishing",
-      github: "https://github.com/yourusername/glasnost-ui",
-      live: "https://glasnost-ui.netlify.app"
-    }
+      link: "https://glasnost.netlify.app/",
+      github: "https://github.com/akashleo/glasnost-ui"
+    },
+    {
+      title: "React Cloud Animation",
+      tech: "Interactive cloud animation system with theme-aware backgrounds for React applications.",
+      link: "https://cloudanimation.akashghosh.xyz/",
+      github: "https://github.com/akashleo/react-cloud-animation"
+    },
   ];
 
   return (
@@ -102,15 +102,15 @@ const Projects = () => {
                   <a 
                     href={project.github} 
                     target='_blank' 
-                    className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all border-2 ${theme === 'dark' ? 'border-purple-600 text-purple-300 hover:border-purple-500 hover:text-purple-200' : theme === 'dusk' ? 'border-purple-500 text-purple-200 hover:border-purple-400 hover:text-purple-100' : 'border-purple-400 text-purple-800 hover:border-purple-500 hover:text-purple-900'}`}
+                    className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all border-2 ${theme === 'dark' ? 'border-purple-600 text-grey-300 hover:border-purple-500 hover:text-purple-200' : theme === 'dusk' ? 'border-purple-500 text-white hover:border-purple-400 hover:text-purple-100' : 'border-purple-400 text-purple-800 hover:border-purple-500 hover:text-purple-900'}`}
                   >
                     <Github className="w-4 h-4" />
                     <span>GitHub</span>
                   </a>
                   <a 
-                    href={project.live} 
+                    href={project.link} 
                     target='_blank' 
-                    className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all border-2 ${theme === 'dark' ? 'border-purple-600 text-purple-300 hover:border-purple-500 hover:text-purple-200' : theme === 'dusk' ? 'border-purple-500 text-purple-200 hover:border-purple-400 hover:text-purple-100' : 'border-purple-400 text-purple-800 hover:border-purple-500 hover:text-purple-900'}`}
+                    className={`flex items-center gap-1 px-3 py-2 rounded-md transition-all border-2 ${theme === 'dark' ? 'border-purple-600 text-grey-300 hover:border-purple-500 hover:text-purple-200' : theme === 'dusk' ? 'border-purple-500 text-white hover:border-purple-400 hover:text-purple-100' : 'border-purple-400 text-purple-800 hover:border-purple-500 hover:text-purple-900'}`}
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Live Demo</span>

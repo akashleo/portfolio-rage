@@ -25,19 +25,23 @@ const BlogSection = () => {
     {
       title: "Picking up Angular as a React developer",
       date: "June 15, 2023",
+      link: "https://akashleo.hashnode.dev/picking-up-angular-as-a-react-developer"
     },
     {
       title: "How I put clouds in my portfolio",
       date: "May 22, 2023",
+      link: "https://dev.to/akashleo/how-i-put-clouds-in-my-portfolio-and-why-b9m"
     },
     {
       title: "That time when i created a npm package that didn't exist",
       date: "April 10, 2023",
+      link: "https://dev.to/akashleo/that-time-when-i-had-to-create-a-npm-package-that-didnt-exist-jd8"
     },
-    {
-      title: "A long journey building Emoquiz",
-      date: "April 10, 2023",
-    }
+    // {
+    //   title: "A long journey building Emoquiz",
+    //   date: "April 10, 2023",
+    //   link: "/blog/emoquiz-journey"
+    // }
   ];
   
   return (
@@ -49,12 +53,12 @@ const BlogSection = () => {
         <ul className="text-left mb-4">
           {blogs.map((blog, index) => (
             <li key={index} className="mb-2 last:mb-0">
-              <a href="#" className="block hover:opacity-80 transition-opacity">
+              <a href={blog.link} className="block hover:opacity-80 transition-opacity">
                 <div className="font-medium">{blog.title}</div>
                 <div className={`text-xs ${textClass}`}>{blog.date}</div>
               </a>
             </li>
-          ))}
+          ))} 
         </ul>
         
         <div className="flex justify-end">

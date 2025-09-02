@@ -14,44 +14,42 @@ const Blogs = () => {
 
   const borderClass = theme === 'dark'
     ? ""
-    : "border border-gray-300";
+    : "border border-black-300";
 
   const textClass = theme === 'dark'
     ? "text-gray-200"
     : theme === 'dusk'
-    ? "text-gray-100"
+    ? "text-gray-500"
     : "text-gray-700";
 
   // Blog items
   const blogs = [
     {
       title: "Picking up Angular as a React developer",
-      date: "June 15, 2023",
+      date: "April 5, 2023",
+      link: "https://akashleo.hashnode.dev/picking-up-angular-as-a-react-developer",
       slug: "angular-for-react-devs",
-      excerpt:
-        "As a long-time React developer, stepping into Angular felt both familiar and refreshingly different. Here’s how I approached components, state, and tooling in Angular from a React mindset",
+      excerpt: "Angular and React are both popular front-end web development frameworks, but they have some fundamental differences in their architecture, syntax, and approach to building web applications. Here are some ways in which Angular differs from React for developers:"
     },
     {
       title: "How I put clouds in my portfolio",
-      date: "May 22, 2023",
+      date: "September 1, 2025",
+      link: "https://dev.to/akashleo/how-i-put-clouds-in-my-portfolio-and-why-b9m",
       slug: "clouds-in-portfolio",
-      excerpt:
-        "I wanted subtle depth and motion without sacrificing performance. This post breaks down the cloud animation layers, rendering strategy, and a few gotchas I hit along the way",
+      excerpt: "Well, I made my portfolio and there is one feature I am proud of. I did not plan on it initially, but there arose the reason. I thought of putting something novel that is unique to my portfolio. I pondered over the thought and then it struck, I could put my name in my portfolio and then when clicked, I could show it's meaning and that's when it hit me that I could put a cloud animation."
     },
     {
-      title: "That time when I created an npm package that didn't exist",
-      date: "April 10, 2023",
+      title: "That time when i created a npm package that didn't exist",
+      date: "July 3, 2025",
+      link: "https://dev.to/akashleo/that-time-when-i-had-to-create-a-npm-package-that-didnt-exist-jd8",
       slug: "creating-npm-package",
-      excerpt:
-        "Scratching my own itch led to a tiny utility I couldn’t find on npm. From API design to publishing and versioning, here’s what I learned building and maintaining it",
-    },
-    {
-      title: "A long journey building Emoquiz",
-      date: "April 10, 2023",
-      slug: "building-emoquiz",
-      excerpt:
-        "Emoquiz started as a weekend idea and turned into a full product. I cover the product iterations, tech choices, user feedback loops, and what I’d do differently",
-    },
+      excerpt: "While working at PhonePe, the first team I was with was the QA team. The backend devs worked from the Pune office and I was from the Bangalore office. They had built a IssueTracker bot on slack, where the QA team would report issues that they found anywhere with the developed features in staging, production and other environments. It was also for user raised issues in the live application."
+    }
+    // {
+    //   title: "A long journey building Emoquiz",
+    //   date: "April 10, 2023",
+    //   link: "/blog/emoquiz-journey"
+    // }
   ];
 
   return (
@@ -59,7 +57,7 @@ const Blogs = () => {
       <div className={`${bgClass} ${borderClass} p-6 rounded-xl relative overflow-hidden`}>
         <div className="relative z-10">
           <h3 className="text-6xl font-bold mb-4">blogs.</h3>
-
+          <h4 className="text-lg font-semibold mb-4" >i have a lot of stories on drafts, but these are few of them which i published</h4>
           {/* Blog tiles */}
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-6">
             {blogs.map((blog) => (
@@ -69,14 +67,14 @@ const Blogs = () => {
                   theme === 'dark'
                     ? 'bg-black/20 border border-white/10'
                     : theme === 'dusk'
-                    ? 'bg-white/10 border border-white/20'
+                    ? 'bg-white/10 border border-black/20'
                     : 'bg-white/60 border border-black/5'
                 }`}
               >
-                <h4 className="text-lg font-semibold leading-snug mb-1">{blog.title}</h4>
+                <h4 className={`text-lg font-semibold leading-snug mb-1 ${textClass}`}>{blog.title}</h4>
                 <div className={`text-xs mb-2 ${textClass}`}>{blog.date}</div>
                 <p className={`text-sm ${textClass}`}>
-                  {blog.excerpt} <Link to={`/blogs/${blog.slug}`} className="underline font-medium">...more</Link>
+                  {blog.excerpt} <Link to={blog.link} className="underline font-medium">...more</Link>
                 </p>
               </li>
             ))}
