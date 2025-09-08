@@ -121,7 +121,7 @@ const Projects = () => {
           </ul>
           
           {/* Hidden Features Section */}
-          <div className="mt-8 mb-6">
+          {/* <div className="mt-8 mb-6">
             <button 
               onClick={() => setShowHiddenFeatures(!showHiddenFeatures)}
               className={`flex items-center gap-2 ${theme === 'dark' ? 'bg-purple-800' : theme === 'dusk' ? 'bg-purple-600' : 'bg-purple-400'} hover:opacity-90 text-white px-4 py-2 rounded-md transition-all duration-300 font-medium`}
@@ -164,7 +164,7 @@ const Projects = () => {
                 </ul>
               </div>
             )}
-          </div>
+          </div> */}
 
           <div className="flex justify-end">
             <img 

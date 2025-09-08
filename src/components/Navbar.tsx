@@ -157,7 +157,7 @@ const Navbar = () => {
             {/* Desktop Navigation Items - Hidden on mobile */}
             <div className="hidden md:flex items-center gap-3">
               <a  
-                href="https://docs.google.com/document/d/e/2PACX-1vT6y0ezUWJCUF-8WSbYxjmUzsniguKUH38ygnTMfz7fIIqNbHCg2s2JE6hhfQL3DcZYe8rw1I9KMJAO/pub"
+                href="/AkashGhosh_FrontendEngineer.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-bold transition-all duration-300 ${getTextClass(false)}`}

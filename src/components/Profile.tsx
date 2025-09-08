@@ -68,7 +68,7 @@ const Profile = () => {
       <div className={`${bgClass} rounded-xl border`}>
         <div className="p-6">
           <div className="flex items-start gap-4">
-            <img className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl" src="https://media.licdn.com/dms/image/v2/D5603AQHG4ZNePwpC1g/profile-displayphoto-scale_400_400/B56ZfNpMeoGoAg-/0/1751501818526?e=1756944000&v=beta&t=Cmc4kTN3PmLDn9WiH0nBr-GMRzM99dk4QJ_woVLFnjw"/>
+            <img className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl" src="/profileimage.png"/>
             <div>
               <h1 className={`text-4xl font-bold ${textClass}`}>akash ghosh.</h1>
               <p className={secondaryTextClass}>@akashleo_tw</p>
