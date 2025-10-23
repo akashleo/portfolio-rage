@@ -225,7 +225,7 @@ const Navbar = () => {
                 >
                   <div className="py-2">
                     <a  
-                      href="https://docs.google.com/document/d/e/2PACX-1vT6y0ezUWJCUF-8WSbYxjmUzsniguKUH38ygnTMfz7fIIqNbHCg2s2JE6hhfQL3DcZYe8rw1I9KMJAO/pub"
+                      href="/AkashGhosh_FrontendEngineer.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`block px-4 py-2 font-bold transition-all duration-300 ${getTextClass(false)}`}
