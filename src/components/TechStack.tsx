@@ -32,7 +32,7 @@ const TechStack = () => {
   ];
 
   const backendTechs = [
-    'Node.js', 'Bun.js', 'Express.js', 'NPM', 'FastAPI'
+    'Node.js', 'Express.js', 'NPM', 'FastAPI'
   ];
 
   const dbServices = [
