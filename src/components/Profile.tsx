@@ -150,7 +150,7 @@ const Profile = () => {
             </p>
 
             <p className={paragraphClass}>
-              Hello, I'm Akash! a 26 year old Frontend Engineer based in Bengaluru - India.
+              Hello, I'm Akash! a 27 year old Frontend Engineer based in Bengaluru - India.
               <br />
               I like playing with code and building cool stuff.
             </p>

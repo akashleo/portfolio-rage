@@ -29,12 +29,12 @@ const BlogSection = () => {
     },
     {
       title: "How I put clouds in my portfolio",
-      date: "May 22, 2023",
+      date: "September 1, 2025",
       link: "https://dev.to/akashleo/how-i-put-clouds-in-my-portfolio-and-why-b9m"
     },
     {
       title: "That time when i created a npm package that didn't exist",
-      date: "April 10, 2023",
+      date: "July 3, 2025",
       link: "https://dev.to/akashleo/that-time-when-i-had-to-create-a-npm-package-that-didnt-exist-jd8"
     },
     // {

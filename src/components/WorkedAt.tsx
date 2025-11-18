@@ -30,7 +30,7 @@ const WorkedAt = () => {
     {
       name: "PhonePe",
       role: "Software Engineer [contract]",
-      period: "2023 August - 2025 June",
+      period: "2023 August - 2025 July",
       logo: "/phonepe.png"
     },
     {
